@@ -33,10 +33,11 @@ export default function UserList() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
+            <TableCell></TableCell>
             {UserTableHeader.map((item, index) => (
-              <TableCell key={index+1}>{item.label}</TableCell>
+              <TableCell key={index + 1}>{item.label}</TableCell>
             ))}
-
+            <TableCell></TableCell>
             {/* <TableCell align="right">Calories</TableCell>
             <TableCell align="right">Fat&nbsp;(g)</TableCell>
             <TableCell align="right">Carbs&nbsp;(g)</TableCell>
