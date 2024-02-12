@@ -34,7 +34,7 @@ const AddUser = (props: IProps) => {
 };
   return (
     <div>
-      <Button variant="outlined" onClick={props.openDialog}>Add User</Button>
+      <Button variant="outlined" onClick={props.openDialog} sx={{float:"right"}}>Add User</Button>
       <Dialog
         onClose={handleClose}
         open={props.open}

@@ -6,7 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { UserTableHeader } from '../constants/User';
+import { UserData, UserTableHeader } from '../constants/User';
+import Checkbox from '@mui/material/Checkbox';
 
 function createData(
   name: string,
@@ -43,18 +44,21 @@ export default function UserList() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {UserData.map((item) => (
             <TableRow
-              key={row.name}
+              key={item.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
+              <TableCell> <Checkbox /></TableCell>
               <TableCell component="th" scope="row">
-                {row.name}
+                {item.name}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{item.userId}</TableCell>
+              <TableCell align="right">{item.email}</TableCell>
+              <TableCell align="right">{item.mobile_number}</TableCell>
+              <TableCell align="right">{item.department}</TableCell>
+              <TableCell align="right">{item.role}</TableCell>
+              <TableCell></TableCell>
             </TableRow>
           ))}
         </TableBody>
