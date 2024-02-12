@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AddUser from './AddUser'
 import UserList from './UserList'
 
 const CommonComponent = () => {
+  let [editUserFlag, setEditUserFlag] = useState(false);
+  
+  const openDialog = () => {
+    setEditUserFlag(true);
+  };
+
+  const closeDialog = () =>{
+    setEditUserFlag(false);
+  }
+
   return (
-    <div>
-        <AddUser />
+    <div style={{margin:"11px"}}>
+        <AddUser open={editUserFlag} closeDialog={closeDialog} openDialog={openDialog} />
+        <br/>
         <UserList />
     </div>
   )
