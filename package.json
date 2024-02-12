@@ -1,5 +1,5 @@
 {
-  "name": "user-management",
+  "name": "template-user-management",
   "version": "1.0.1",
   "description": "user management package",
   "main": "./dist/cjs/index.js",
