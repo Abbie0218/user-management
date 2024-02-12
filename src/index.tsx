@@ -1,1 +1,1 @@
-export * from './components/CommonComponent';
+export * from './components/UserManagement';

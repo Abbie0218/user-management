@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AddUser from './AddUser'
 import UserList from './UserList'
 
-const CommonComponent = () => {
+const UserManagement = () => {
   let [editUserFlag, setEditUserFlag] = useState(false);
   
   const openDialog = () => {
@@ -22,4 +22,4 @@ const CommonComponent = () => {
   )
 }
 
-export default CommonComponent;
+export default UserManagement;

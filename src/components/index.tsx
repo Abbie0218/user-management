@@ -1,3 +1,3 @@
-import CommonComponent from "./CommonComponent";
+import CommonComponent from "./UserManagement";
 
 export {CommonComponent};

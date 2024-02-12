@@ -1,6 +1,6 @@
 // CommonComponent.stories.js
 import React from 'react';
-import CommonComponent from '../components/CommonComponent';
+import CommonComponent from '../components/UserManagement';
 
 // Export default metadata for CommonComponent
 export default {
