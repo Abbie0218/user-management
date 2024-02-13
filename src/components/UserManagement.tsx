@@ -17,7 +17,7 @@ const UserManagement = () => {
     <div style={{margin:"11px"}}>
         <AddUser open={editUserFlag} closeDialog={closeDialog} openDialog={openDialog} />
         <br/>
-        <UserList />
+        <UserList closeDialog={closeDialog} openDialog={openDialog} />
     </div>
   )
 }

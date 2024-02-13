@@ -7,14 +7,22 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { UserData, UserTableHeader } from '../constants/User';
-import { Avatar, IconButton, Stack } from '@mui/material';
+import { Avatar, Button, Dialog, DialogActions, DialogContent, DialogContentText, IconButton, Stack } from '@mui/material';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import { useNavigate } from 'react-router-dom';
 
-export default function UserList() {
+interface IProps{
+  closeDialog: any,
+  openDialog: any
+}
+export default function UserList(props: IProps) {
 
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [openDeleteDialog, setOpenDeleteDialog] = React.useState(false);
+
   const open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -25,6 +33,23 @@ export default function UserList() {
     setAnchorEl(null);
   };
 
+  const userInfo =()=>{
+    navigate('/userDetail');
+    handleClose();
+  }
+
+  const handleOpenDeleteDialog = () => {
+    setOpenDeleteDialog(true);
+    handleClose();
+  };
+
+  const CloseDeleteDialog = () => {
+    setOpenDeleteDialog(false);
+  };
+
+  const openEditDialog = () =>{
+    props.openDialog();
+  }
 
   return (
     <TableContainer component={Paper} style={{marginTop:"28px"}}>
@@ -77,10 +102,30 @@ export default function UserList() {
         }}
       >
         <MenuItem onClick={handleClose}>Active</MenuItem>
-        <MenuItem onClick={handleClose}>Edit</MenuItem>
-        <MenuItem onClick={handleClose}>Info</MenuItem>
-        <MenuItem onClick={handleClose}>Delete</MenuItem>
+        <MenuItem onClick={openEditDialog}>Edit</MenuItem>
+        <MenuItem onClick={userInfo}>Info</MenuItem>
+        <MenuItem onClick={handleOpenDeleteDialog}>Delete</MenuItem>
       </Menu>
+
+
+      <Dialog
+        open={openDeleteDialog}
+        onClose={CloseDeleteDialog}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+             Are you sure you want to delete?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={CloseDeleteDialog}>Cancel</Button>
+          <Button onClick={CloseDeleteDialog} autoFocus>
+            Delete
+          </Button>
+        </DialogActions>
+      </Dialog>
 
     </TableContainer>
   );
