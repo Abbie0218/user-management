@@ -34,7 +34,7 @@ export default function UserList() {
             {UserTableHeader.map((item, index) => (
               <TableCell key={index + 1} sx={{fontWeight:700}}>{item.label}</TableCell>
             ))}
-            <TableCell>Status</TableCell>
+            <TableCell sx={{fontWeight:700}}>Status</TableCell>
             <TableCell sx={{visibility:"hidden"}}>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -60,6 +60,7 @@ export default function UserList() {
               <TableCell>{item.mobile_number}</TableCell>
               <TableCell>{item.department}</TableCell>
               <TableCell>{item.role}</TableCell>
+              <TableCell></TableCell>
               <TableCell><IconButton onClick={handleClick}><MoreHorizIcon /></IconButton></TableCell>
             </TableRow>
           ))}
@@ -75,9 +76,10 @@ export default function UserList() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>Active</MenuItem>
+        <MenuItem onClick={handleClose}>Edit</MenuItem>
+        <MenuItem onClick={handleClose}>Info</MenuItem>
+        <MenuItem onClick={handleClose}>Delete</MenuItem>
       </Menu>
 
     </TableContainer>
